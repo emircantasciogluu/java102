@@ -42,6 +42,48 @@ It helps maintain data integrity and prevents external code from modifying objec
 - Demonstrates validation behavior by attempting to set a negative page number.
 
 ---
+
+# Project02OOPRelationships
+
+This project demonstrates the **core relationships** in Object-Oriented Programming (OOP):  
+**Dependency**, **Composition**, and the foundation for **Inheritance**.
+
+These concepts are represented through a simple academic system with `Student`, `Instructor`, and `Course` classes.
+
+---
+
+## 📘 Classes Overview
+
+### 👩‍🎓 `Student.java`
+Represents a student with:
+- `name`, `surname`, `idNo`, `address`, and `note` fields.
+- Encapsulation through getters and setters.
+- Validation in `setNote()` to ensure the grade is between **0–100**.
+
+---
+
+### 👨‍🏫 `Instructor.java`
+Represents an instructor with:
+- `name`, `surname`, and `department`.
+- Standard getter and setter methods for encapsulation.
+
+---
+
+### 📚 `Course.java`
+- Demonstrates **Composition** → Each `Course` *has an* `Instructor`.
+- Demonstrates **Dependency** → The method `calcAverage(Student[] students)` depends on `Student` objects to function.
+- Contains:
+    - `calcAverage()` → Calculates average grade of enrolled students.
+    - Accessor methods for both course and instructor details.
+
+---
+
+### ⚙️ `Main.java`
+- Creates and connects `Student`, `Instructor`, and `Course` objects.
+- Prints instructor’s department.
+- Optionally (commented line) shows how to calculate students’ average grades using dependency logic.
+
+---
 ## 🚀 How to Run
 1. Clone the repository:
    ```bash
