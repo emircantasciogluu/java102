@@ -84,6 +84,23 @@ Represents an instructor with:
 - Optionally (commented line) shows how to calculate students’ average grades using dependency logic.
 
 ---
+
+# University OOP – Abstraction & Inheritance Demo
+
+This mini Java project models a university organization based on a UML diagram.  
+It demonstrates **Abstraction**, **Inheritance**, and a bit of **Polymorphism**.
+
+### Class Hierarchy
+- `Employee` (abstract)
+    - `Academician`
+        - `Lecturer` (senate meeting, exam)
+        - `Assistant` (quiz)
+        - `LabAssistant` (enter lab, teach lab)
+    - `Officer`
+        - `InformationTechnology` (setup network)
+        - `SecurityOfficer` (stand watch)
+
+---
 ## 🚀 How to Run
 1. Clone the repository:
    ```bash
