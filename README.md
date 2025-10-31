@@ -101,6 +101,42 @@ It demonstrates **Abstraction**, **Inheritance**, and a bit of **Polymorphism**.
         - `SecurityOfficer` (stand watch)
 
 ---
+
+# 🏝️ Adventure Game (Java)
+
+A text-based adventure game built entirely with **Java**, where players explore mysterious locations, fight dangerous enemies, and collect rewards to survive on a dark and foggy island.
+
+---
+
+## 🎮 Features
+
+- 🌍 **Exploration System** — Travel between multiple areas like Safe House, Cave, Forest, and River.
+- ⚔️ **Combat Mechanics** — Engage in turn-based battles against Zombies, Vampires, and Bears.
+- 🧍 **Player Customization** — Choose your character class: Samurai, Archer, or Knight.
+- 🛒 **Tool Store** — Purchase weapons and armors to boost your attack and defense.
+- 💾 **Inventory System** — Keep track of your items, coins, and equipped gear.
+- 🧱 **Clean UI** — Fully English terminal interface with structured layouts and icons.
+
+---
+
+## 🧠 How to Play
+
+1. Run the `Game` class to start the adventure.
+2. Enter your player name.
+3. Choose your character (Samurai, Archer, or Knight).
+4. Explore areas and decide whether to **fight** or **retreat**.
+5. Collect rewards, visit the Tool Store to upgrade, and survive as long as you can!
+
+---
+
+## ⚙️ Technologies Used
+
+- **Language:** Java
+- **IDE:** IntelliJ IDEA
+- **Concepts:** Object-Oriented Programming (OOP), Inheritance, Polymorphism, Abstraction
+- **Structure:** Clean modular classes for Player, Location, Obstacle, Weapon, and more.
+
+---
 ## 🚀 How to Run
 1. Clone the repository:
    ```bash

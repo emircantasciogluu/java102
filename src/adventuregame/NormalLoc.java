@@ -1,0 +1,13 @@
+package adventuregame;
+
+public abstract class NormalLoc extends Location{
+
+    public NormalLoc(int id, Player player, String name) {
+        super(id, player, name);
+    }
+
+    @Override
+    boolean onLocation(){
+        return true;
+    }
+}
