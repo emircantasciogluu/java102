@@ -137,6 +137,26 @@ A text-based adventure game built entirely with **Java**, where players explore 
 - **Structure:** Clean modular classes for Player, Location, Obstacle, Weapon, and more.
 
 ---
+
+## 🧩 Project: Nested Classes in Java
+
+This project demonstrates the **four main types of nested classes** in Java, each implemented with clear examples and clean console outputs.
+
+### 🔹 Topics Covered
+- **Inner Class (Non-Static)** → Demonstrates how inner classes can access outer class members.
+- **Static Inner Class** → Shows how to access members without creating an outer class instance.
+- **Local Inner Class** → Defines a class inside a method and accesses its local scope.
+- **Anonymous Inner Class** → Implements an abstract method on the fly without naming the subclass.
+
+### 🧠 Key Concepts
+- Code organization and encapsulation with nested classes.
+- Scope and access control between outer and inner classes.
+- Static vs. non-static context understanding in Java.
+
+### 🚀 How to Run
+Simply execute the `Main.java` file.  
+Each nested class example will display in the terminal with a clean and structured output format.
+
 ## 🚀 How to Run
 1. Clone the repository:
    ```bash
