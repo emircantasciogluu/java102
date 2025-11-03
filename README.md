@@ -157,6 +157,16 @@ This project demonstrates the **four main types of nested classes** in Java, eac
 Simply execute the `Main.java` file.  
 Each nested class example will display in the terminal with a clean and structured output format.
 
+---
+
+## 🧩 Project: Generic Structures (Nullable & Test)
+
+This project demonstrates **Java Generics** with real-world examples.  
+It includes reusable utility classes for handling different data types safely and efficiently.
+
+---
+
+
 ## 🚀 How to Run
 1. Clone the repository:
    ```bash
