@@ -166,6 +166,123 @@ It includes reusable utility classes for handling different data types safely an
 
 ---
 
+# 📚 Project: BookSorter – Sorting Books Using Comparable & Comparator
+
+This project demonstrates how to use **Java's Comparator interface** to sort objects in different ways.  
+The application sorts a collection of books in **two different orders**:
+
+- **Alphabetically (A → Z) by book name** using `OrderName` comparator
+- **Ascending by page count** using `OrderPageNumber` comparator
+
+---
+
+## 📘 Class Overview
+
+### 📖 `Book.java`
+Represents a book with the following fields:
+
+- `String name` – Book title
+- `int pageNumber` – Number of pages
+- `String authorName` – Author of the book
+- `int date` – Publication year
+
+This class provides standard getters and setters but does **not** implement `Comparable`,  
+because custom sorting is handled externally by Comparator classes.
+
+---
+
+### 🔤 `OrderName.java`
+A Comparator class that sorts books alphabetically by **name**.
+
+```java
+public class OrderName implements Comparator<Book> {
+    @Override
+    public int compare(Book o1, Book o2) {
+        return o1.getName().compareTo(o2.getName());
+    }
+}
+```
+
+---
+
+### 📄 `OrderPageNumber.java`
+A Comparator class that sorts books by **page count** (ascending order).
+
+```java
+public class OrderPageNumber implements Comparator<Book> {
+    @Override
+    public int compare(Book o1, Book o2) {
+        return o1.getPageNumber() - o2.getPageNumber();
+    }
+}
+```
+
+---
+
+## 🧪 Example Usage (`Main.java`)
+
+Two `TreeSet` structures are created:  
+one sorted by **name**, the other sorted by **page count**.
+
+```java
+Set<Book> books = new TreeSet<>(new OrderName());
+Set<Book> books1 = new TreeSet<>(new OrderPageNumber());
+
+books.add(new Book("To Kill a Mockingbird", 336, "Harper Lee", 1960));
+books.add(new Book("Pride and Prejudice", 279, "Jane Austen", 1813));
+books.add(new Book("Brave New World", 311, "Aldous Huxley", 1932));
+books.add(new Book("Moby Dick", 635, "Herman Melville", 1851));
+books.add(new Book("The Hobbit", 310, "J.R.R Tolkien", 1937));
+
+books1.add(new Book("To Kill a Mockingbird", 336, "Harper Lee", 1960));
+books1.add(new Book("Pride and Prejudice", 279, "Jane Austen", 1813));
+books1.add(new Book("Brave New World", 311, "Aldous Huxley", 1932));
+books1.add(new Book("Moby Dick", 635, "Herman Melville", 1851));
+books1.add(new Book("The Hobbit", 310, "J.R.R Tolkien", 1937));
+```
+
+---
+
+## 📊 Output Examples
+
+### **Sorted by Name**
+```
+Brave New World
+Moby Dick
+Pride and Prejudice
+The Hobbit
+To Kill a Mockingbird
+```
+
+### **Sorted by Page Number**
+```
+Pride and Prejudice
+The Hobbit
+Brave New World
+To Kill a Mockingbird
+Moby Dick
+```
+
+---
+
+## 🎯 What You Learn From This Project
+
+- How to store custom objects inside a `TreeSet`
+- How to write multiple sorting logics using `Comparator`
+- How `TreeSet` automatically sorts elements based on provided comparator
+- Good class design for data models like `Book`
+
+---
+
+## 🛠 Technologies Used
+
+- **Language:** Java
+- **Concepts:** Comparator, OOP, Collections Framework
+- **Structures:** TreeSet, Custom Sorting
+
+---
+
+
 
 ## 🚀 How to Run
 1. Clone the repository:
