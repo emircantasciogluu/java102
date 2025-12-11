@@ -282,8 +282,131 @@ Moby Dick
 
 ---
 
+## 🧵 Project: Thread Race – Splitting Work Across Multiple Threads
 
+This project demonstrates how to work with Java Threads, shared data structures, and synchronized collections.
+The goal is to process a list of 1 to 10,000 and divide the workload across four threads,
+each responsible for identifying even and odd numbers within its own subset.
 
+---
+
+## 🧠 What This Project Covers
+•	Creating and managing multiple threads
+•	Sharing data safely across threads
+•	Using Collections.synchronizedList for thread-safe operations
+•	Splitting a large list into equal parts
+•	Understanding how threads process data in parallel
+•	How join() ensures all threads finish before reading results
+
+---
+
+## 📘 Class Overview
+
+🔧 NumberWorker.java
+
+This class implements Runnable and represents the work done by each thread.
+
+Each thread:
+•	Receives a 2500-element sublist
+•	Iterates through its numbers
+•	Adds even numbers to a shared evenList
+•	Adds odd numbers to a shared oddList
+
+```java
+public class NumberWorker implements Runnable {
+
+    private final List<Integer> sourceList;
+    private final List<Integer> evenList;
+    private final List<Integer> oddList;
+
+    public NumberWorker(List<Integer> sourceList,
+                        List<Integer> evenList,
+                        List<Integer> oddList) {
+        this.sourceList = sourceList;
+        this.evenList = evenList;
+        this.oddList = oddList;
+    }
+
+    @Override
+    public void run() {
+        for (Integer number : sourceList) {
+            if (number % 2 == 0) {
+                evenList.add(number);
+            } else {
+                oddList.add(number);
+            }
+        }
+    }
+}
+```
+---
+
+⚙️ Main.java
+
+The main class:
+1.	Creates a list of numbers 1 to 10,000
+2.	Splits it into four 2500-element pieces
+3.	Creates shared synchronized lists for evens and odds
+4.	Starts four worker threads
+5.	Waits for them to finish using join()
+6.	Prints results
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 1; i <= 10000; i++) {
+            numbers.add(i);
+        }
+
+        List<Integer> evenNumbers = Collections.synchronizedList(new ArrayList<>());
+        List<Integer> oddNumbers  = Collections.synchronizedList(new ArrayList<>());
+
+        List<Integer> part1 = numbers.subList(0, 2500);
+        List<Integer> part2 = numbers.subList(2500, 5000);
+        List<Integer> part3 = numbers.subList(5000, 7500);
+        List<Integer> part4 = numbers.subList(7500, 10000);
+
+        Thread t1 = new Thread(new NumberWorker(part1, evenNumbers, oddNumbers));
+        Thread t2 = new Thread(new NumberWorker(part2, evenNumbers, oddNumbers));
+        Thread t3 = new Thread(new NumberWorker(part3, evenNumbers, oddNumbers));
+        Thread t4 = new Thread(new NumberWorker(part4, evenNumbers, oddNumbers));
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+
+        try {
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Total even numbers  : " + evenNumbers.size());
+        System.out.println("Total odd numbers   : " + oddNumbers.size());
+        System.out.println("Total numbers (sum) : " + (evenNumbers.size() + oddNumbers.size()));
+    }
+}
+```
+---
+## 🎯 What You Learn From This Project
+•	How to distribute work across multiple threads
+•	How thread scheduling improves performance
+•	How to safely modify shared collections
+•	How join() ensures proper synchronization
+•	How large tasks can be broken into parallel subproblems
+
+---
+
+## 🛠 Technologies Used
+•	Language: Java
+•	Concepts: Multithreading, Runnable, join(), synchronized collections
+•	Structures: ArrayList, Thread, SubList
+---
 ## 🚀 How to Run
 1. Clone the repository:
    ```bash
